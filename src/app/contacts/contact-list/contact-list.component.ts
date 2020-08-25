@@ -22,12 +22,6 @@ export class ContactListComponent implements OnInit {
       .getContacts()
       .then((contacts: Contact[]) => {
         this.contacts = contacts.map((contact) => {
-          if (!contact.phone) {
-            contact.phone = {
-              mobile: '',
-              work: ''
-            }
-          }
           return contact;
         });
       });
@@ -45,13 +39,50 @@ export class ContactListComponent implements OnInit {
 
   createNewContact() {
     var contact: Contact = {
-      name: '',
-      email: '',
-      phone: {
-        work: '',
-        mobile: ''
+      name: "",
+      player: "",
+      maxHp: 0,
+      armorClass: 0,
+      class: "",
+      level: 0,
+      race: "",
+      passives: {
+          Perception: 0,
+          Investigation: 0,
+          Insight: 0
+      },
+      proficiencies: [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+      ],
+      attackAbility: "",
+      attackModifier: 0,
+      senses: [],
+      languages: [
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+      ],
+      resistances: [
+          ""
+      ],
+      savingThrows: {
+          STR: 0,
+          DEX: 0,
+          CON: 0,
+          INT: 0,
+          WIS: 0,
+          CHA: 0
       }
-    };
+  };
 
     // By default, a newly-created contact will have the selected state.
     this.selectContact(contact);
