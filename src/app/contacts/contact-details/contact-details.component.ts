@@ -33,6 +33,8 @@ export class ContactDetailsComponent {
     });
   }
 
+  
+
   deleteContact(contactId: String): void {
     this.contactService.deleteContact(contactId).then((deletedContactId: String) => {
       this.deleteHandler(deletedContactId);
